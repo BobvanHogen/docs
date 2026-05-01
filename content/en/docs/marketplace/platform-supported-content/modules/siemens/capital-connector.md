@@ -9,7 +9,7 @@ description: "Describes the configuration and usage of the Siemens Capital conne
 
 The Siemens [Capital](https://plm.sw.siemens.com/en-US/capital/) electrical and electronics (E/E) software tools help design and develop electrical and electronic systems, including system architecture, communication networks, and embedded software. 
 
-The Mendix [Capital connector](https://marketplace.mendix.com/link/component/247337) consists of microflows that help you authenticate with Capital, effortlessly get Capital data into your Mendix app, and build custom implementations tailored to your needs.    
+The Mendix [Capital connector](https://marketplace.mendix.com/link/component/247337) consists of microflows that help you authenticate with Capital, effortlessly get Capital data into your Mendix app, and build custom implementations tailored to your needs.
 
 ### Licensing
 
@@ -17,7 +17,7 @@ The Capital connector is licensed under the [Apache V2.0 License](https://www.ap
 
 ### Prerequisites
  
-* Studio Pro version 10.24.3 or above
+* Studio Pro version 10.24.8 or above
 * A Capital instance, with licensed Capital Integration Server (CIS) enabled and running
 
 ### Dependencies {#dependencies}
@@ -69,7 +69,15 @@ For details on defining a filter, refer to the REST API documentation of your Ca
 
 ### Capital object IDs
 
-Some operations take an object ID as parameter. Many Capital objects have a `BaseID` attribute. For those that do not have this attribute, please use the ID getter microflow available in the toolbox. This takes the link attribute available on the associated metadata object, and returns the ID of the parent object.
+Some operations take an object ID as parameter. Many Capital objects have a `BaseID` attribute. For those that do not have this attribute, please use the ID getter microflow available in the toolbox. This uses the link attribute available on the associated metadata object, and returns the ID of the parent object.
+
+### Capital project IDs
+
+Sometimes you need the project ID as input for a REST operation. In case you don't have the project ID to your disposition, but you do have a metadata link attribute from a Capital object, you can use the exposed `Get project id for Capital object` microflow.
+
+### String response to file
+
+Some Capital services expose files, returning them as strings. Some examples include `Get Options` and `Get Product plan by id`. You can use the exposed `String response to file` to convert these strings to files.
 
 ## Resources
 
